@@ -22,9 +22,10 @@ class ItemList:
         uniqueCount = []
 
         for item in items:
-            if item in uniqueList:
-                index = uniqueList.index(item)
-                uniqueCount[index] = uniqueCount[index] + 1
+            for index in xrange(len(uniqueList)):
+                if uniqueList[index] is item:
+                    uniqueCount[index] = uniqueCount[index] + 1
+                    break
             if item not in uniqueList:
                 uniqueList.append(item)
                 uniqueCount.append(1)
