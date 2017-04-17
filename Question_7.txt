@@ -1,0 +1,17 @@
+Using the Python subprocess module can allow us to monitor I/O streams originating form Application 2.
+
+Reading from command line:
+  We can set subprocesses' popen command to track streams stdout, stderror or both that originate from
+the second application. As long as the application has some sort of resource/completion monitor
+statement output (which should be assumed) we can gather information about it. Popen can also be assigned
+to an output file originating from the second application. If the process writes to file we should also be
+able to monitor progress.
+
+Handling Errors:
+  Since we can read stderror we can determine when the second application is no longer running correctly
+and kill the process using popen functions.
+
+Returning After Success:
+  The second application is running as a sub-application of our main python GUI, therefore we can have
+popen return the exit status of the process to the first application and continue to handle the process
+there.
